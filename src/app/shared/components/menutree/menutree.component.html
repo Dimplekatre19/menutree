@@ -1,0 +1,15 @@
+<li class="tree-node">
+  <div class="row" (click)="toggle()">
+    <span class="arrow" *ngIf="node.children?.length">
+      <span [class.open]="expanded()">▶</span>
+    </span>
+    <span class="label">{{ node.name }}</span>
+   </div>
+
+
+<ul class="children" *ngIf="node.children?.length && expanded()">
+   <ng-container *ngFor="let child of node.children">
+     <app-menutree [node]="child"></app-menutree>
+   </ng-container>
+</ul>
+</li>
